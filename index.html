@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="gameApp">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Tic Tac Toe Game</title>
     <link href="styles.css" media="all" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/GameController.js"></script>
 </head>
-<body>
+<body ng-controller='GameController'>
     <section>
         <div id="game-board">
             <span data-order="1"></span>
@@ -25,6 +28,5 @@
             Would you like to <a href="">play again</a>?
         </p>
     </div>
-    <script src="custom.js"></script>
 </body>
 </html>
