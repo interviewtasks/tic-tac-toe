@@ -7,13 +7,38 @@ var addNewEventListener = function(element, eventName, foo){
     }
 };
 
-var d = document;
-var x = "X";
-var o = "O";
-var clickArray = [];
-var clicks = 0;
+var HumanPlayer = function(){
+    var aiPlayer;
+    if (arguments[0] instanceof AIPlayer) {
+        aiPlayer = arguments[0];
+    }
+    var doPlay = function(){
 
-var element = d.getElementById('game-board');
+    };
+    this.play = function(){
+        doPlay();
+        if (aiPlayer) { aiPlayer.play(); }
+    };
+};
+
+var AIPlayer = function(){
+    this.play = function(){};
+};
+
+var player1 = new HumanPlayer(), player2;
+var d = document;
+var x = "X", o = "O", clickArray = [], clicks = 0;
+
+var gameSetUp = function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    var player2Type = e.target.attributes[0].value * 1;
+    if (player2Type === 1) { player2 = new AIPlayer(); }
+    else { player2 = new HumanPlayer(); }
+    d.getElementById('game-setup').className = 'hidden';
+    d.getElementById('game-board').className = '';
+};
+
 var gameOver = function(winner) {
     var div = d.getElementById('game-over');
     div.className="";
@@ -68,4 +93,5 @@ var foo = function(e){
 
     }
 };
-addNewEventListener(element, 'click', foo);
+addNewEventListener(d.getElementsByTagName('ul')[0], 'click', gameSetUp);
+addNewEventListener(d.getElementById('game-board'), 'click', foo);
