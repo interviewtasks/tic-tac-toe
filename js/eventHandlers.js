@@ -6,7 +6,7 @@ var addNewEventListener = function(element, eventName, foo){
     }
 };
 
-var playerHandler = new PlayerTurnEventHandler(game.turn);
+var playerHandler = new PlayerTurnEventHandler(game.play);
 
 addNewEventListener(d.getElementsByTagName('ul')[0], 'click', game.setup);
 addNewEventListener(d.getElementById('game-board'), 'click', playerHandler.clickHandler);
