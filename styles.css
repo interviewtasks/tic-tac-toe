@@ -19,7 +19,7 @@ span {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 #game-over {
@@ -34,4 +34,8 @@ span {
 
 #game-over p {
     background-color: rgb(255,255,255);
+}
+
+li {
+    cursor: pointer;
 }
