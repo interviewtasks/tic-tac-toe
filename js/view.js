@@ -1,3 +1,11 @@
+/**
+ * File with view related functionality
+ */
+
+/**
+ * The simply view object.Is needed for rendering changes
+ * and showing result on the board game
+ */
 var View = function(){
     var boardTiles = d.querySelectorAll('[data-order]');
     this.renderGame = function(lastChanges) {
